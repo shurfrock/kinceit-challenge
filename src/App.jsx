@@ -57,12 +57,15 @@ function App() {
                 <TableCell sx={{ fontWeight: 'bold'}}> Especie </TableCell>
                 <TableCell sx={{ fontWeight: 'bold'}}> Género </TableCell>
                 <TableCell sx={{ fontWeight: 'bold'}}> Origen </TableCell>
+                <TableCell sx={{ fontWeight: 'bold'}}> Imagen </TableCell>
                 <TableCell sx={{ fontWeight: 'bold'}}> Link </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {filteredCharacters.map(character => (
-                <TableRow key={character.id}>
+                <TableRow key={character.id} sx={{ '&:hover': {
+                  background: "#a1a1a1",
+               }}}>
                   
                   <TableCell>
                     {character.name}
@@ -81,6 +84,9 @@ function App() {
                   </TableCell>
                   <TableCell>
                       <img src={character.image}  style={{ width: '100px', height: '100px' }}/>
+                  </TableCell>
+                  <TableCell>
+                    <a href={character.image} target='_blank'>{character.episode}</a> 
                   </TableCell>
                 </TableRow>
               ))}
